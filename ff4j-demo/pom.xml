@@ -1,0 +1,64 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>demo</groupId>
+	<artifactId>ff4j-demo</artifactId>
+	<version>1.0.0</version>
+	<packaging>war</packaging>
+	<name>FF4J Demo Project</name>
+	<description>FF4J Demo Project</description>
+
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/org.ff4j/ff4j-web -->
+		<dependency>
+			<groupId>org.ff4j</groupId>
+			<artifactId>ff4j-core</artifactId>
+			<version>1.3</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.ff4j/ff4j-web -->
+		<dependency>
+			<groupId>org.ff4j</groupId>
+			<artifactId>ff4j-web</artifactId>
+			<version>1.3</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+			<version>4.11</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>maven-jetty-plugin</artifactId>
+				<version>6.1.26</version>
+				<configuration>
+					<useTestClasspath>true</useTestClasspath>
+					<contextPath>/hello</contextPath>
+					<scanIntervalSeconds>5</scanIntervalSeconds>
+					<stopPort>8065</stopPort>
+					<connectors>
+						<connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+							<port>8080</port>
+							<maxIdleTime>60000</maxIdleTime>
+						</connector>
+					</connectors>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+					<showWarnings>true</showWarnings>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+</project>
